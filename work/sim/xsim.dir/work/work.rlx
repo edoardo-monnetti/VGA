@@ -1,0 +1,7 @@
+0.6
+2019.1
+May 24 2019
+14:51:52
+/home/edoardo/Desktop/VGA_project/bench/ClockGen.v,1630078950,systemVerilog,,,,ClockGen,,,/home/edoardo/Desktop/VGA_project/work/sim/../../rtl,,,,,
+/home/edoardo/Desktop/VGA_project/cores/PLL/PLL_sim_netlist.v,1630078372,systemVerilog,,,,PLL;PLL_PLL_clk_wiz;glbl,,,,,,,,
+/home/edoardo/Desktop/VGA_project/rtl/display_timing.v,1630079127,systemVerilog,,,,display_timing,,,/home/edoardo/Desktop/VGA_project/work/sim/../../rtl,,,,,

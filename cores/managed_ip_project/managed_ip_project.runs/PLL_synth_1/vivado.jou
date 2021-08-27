@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Aug 27 17:32:18 2021
+# Process ID: 11688
+# Current directory: /home/edoardo/Desktop/VGA_project/cores/managed_ip_project/managed_ip_project.runs/PLL_synth_1
+# Command line: vivado -log PLL.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PLL.tcl
+# Log file: /home/edoardo/Desktop/VGA_project/cores/managed_ip_project/managed_ip_project.runs/PLL_synth_1/PLL.vds
+# Journal file: /home/edoardo/Desktop/VGA_project/cores/managed_ip_project/managed_ip_project.runs/PLL_synth_1/vivado.jou
+#-----------------------------------------------------------
+source PLL.tcl -notrace
