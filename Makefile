@@ -74,11 +74,10 @@ LOG_DIR  := log
 ##########################################
 
 ## specify top-level RTL (this is used for implementation and firmware installation)
-RTL_TOP_MODULE := PISO
+RTL_TOP_MODULE := display_timing
 
 ## specify top-level testbench module (this is the target module for the xelab executable)
-SIM_TOP_MODULE := tb_PISO
-#SIM_TOP_MODULE := tb_uart_tx
+SIM_TOP_MODULE := clk_gen_tb
 
 ##
 ## **NOTE
@@ -93,10 +92,11 @@ SIM_TOP_MODULE := tb_PISO
 ## specify RTL sources by hand (more in general can be Verilog + VHDL code)
 ##
 
-RTL_VLOG_SOURCES := $(RTL_DIR)/PISO.v $(RTL_DIR)/TickCounter.v $(RTL_DIR)/BaudGen.v
+RTL_VLOG_SOURCES := $(RTL_DIR)/display_timing.v
 SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v
 
-SIM_VLOG_SOURCES += $(SIM_DIR)/tb_PISO.v
+
+#SIM_VLOG_SOURCES += $(SIM_DIR)/
 #SIM_VLOG_SOURCES += $(SIM_DIR)/tb_uart_tx.v
 
 
@@ -174,8 +174,8 @@ endif
 ##   target FPGA device and external memory   ##
 ################################################
 
-board := Arty
-#board := ArtyA7
+#board := Arty
+board := ArtyA7
 
 ## default: Artix7 on Digilent Aty/Arty A7 development boards
 part  := xc7a35ticsg324-1L

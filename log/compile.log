@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/edoardo/Desktop/VGA_project/rtl/display_timing.v" into library work
+INFO: [VRFC 10-311] analyzing module display_timing
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/edoardo/Desktop/VGA_project/bench/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/edoardo/Desktop/VGA_project/bench/ClockGen.v" into library work
+INFO: [VRFC 10-311] analyzing module ClockGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/edoardo/Desktop/VGA_project/cores/PLL/PLL_sim_netlist.v" into library work
+INFO: [VRFC 10-311] analyzing module PLL
+INFO: [VRFC 10-311] analyzing module PLL_PLL_clk_wiz
+INFO: [VRFC 10-311] analyzing module glbl
