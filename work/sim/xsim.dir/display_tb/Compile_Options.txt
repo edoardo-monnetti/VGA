@@ -1,1 +1,0 @@
--relax -mt "2" -L "work" -L "xil_defaultlib" -L "xpm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -debug "all" "work.display_tb" "work.glbl" -snapshot "display_tb" -nolog 
