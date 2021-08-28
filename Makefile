@@ -77,7 +77,7 @@ LOG_DIR  := log
 RTL_TOP_MODULE := display_timing
 
 ## specify top-level testbench module (this is the target module for the xelab executable)
-SIM_TOP_MODULE := clk_gen_tb
+SIM_TOP_MODULE := display_tb
 
 ##
 ## **NOTE
@@ -93,7 +93,7 @@ SIM_TOP_MODULE := clk_gen_tb
 ##
 
 RTL_VLOG_SOURCES := $(RTL_DIR)/display_timing.v
-SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v
+SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v $(SIM_DIR)/display_tb.v
 
 
 #SIM_VLOG_SOURCES += $(SIM_DIR)/
