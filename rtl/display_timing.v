@@ -22,9 +22,9 @@ module display_timing (
    
    output reg [9:0] sx,              // horizontal screen position 
    output reg [9:0] sy,              // vertical screen position
-   output hsync,                     // horizontal sync (31,5 kHz)
-   output vsync,                     // vertical sync (60 Hz)
-   output enable                     // data enable (low in blanking interval) 
+   output reg hsync,                     // horizontal sync (31,5 kHz)
+   output reg vsync,                     // vertical sync (60 Hz)
+   output reg enable                     // data enable (low in blanking interval) 
    );
    
    
@@ -75,5 +75,15 @@ module display_timing (
             sy <= 0;
         end
     end
+    
+    
+    always @(posedge clk_pix) begin
+        hsync = ~((sx >= HS_STA) && (sx < HS_END));
+        vsync = ~((sy >= VS_STA) && (sy < VS_END));
+        enable = (sx <= HA_END && sy <= VA_END);        
+    end
+    
+    
+    
 endmodule
 
