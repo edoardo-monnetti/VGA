@@ -23,8 +23,9 @@ module display_tb ;
    reg [9:0] sx;
    reg [9:0] sy;
    reg rst;
+   reg enable;
 
-   display_timing  DUT (.clk(clk100), .rst(rst), .hsync(hsync), .vsync(vsync), .sx(sx), .sy(sy) ) ;
+   display_timing  DUT (.clk(clk100), .rst(rst), .hsync(hsync), .vsync(vsync), .sx(sx), .sy(sy), .enable(enable) ) ;
 
 
 
