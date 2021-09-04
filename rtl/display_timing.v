@@ -12,7 +12,7 @@
 //    Sync Polarity        neg    neg
 
 
-`timescale 1ns / 100ps
+`timescale 1 ns / 100 ps
 
 
 module display_timing (
@@ -76,6 +76,11 @@ module display_timing (
         end
     end
     
+    ////////////////////////////////////////
+    //      generating hsync & vsync      //
+    ////////////////////////////////////////
+    
+    
     
     always @(posedge clk_pix) begin
         hsync = ~((sx >= HS_STA) && (sx < HS_END));
@@ -86,4 +91,3 @@ module display_timing (
     
     
 endmodule
-
