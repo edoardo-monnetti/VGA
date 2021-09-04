@@ -74,10 +74,10 @@ LOG_DIR  := log
 ##########################################
 
 ## specify top-level RTL (this is used for implementation and firmware installation)
-RTL_TOP_MODULE := display_timing
+RTL_TOP_MODULE := VGA
 
 ## specify top-level testbench module (this is the target module for the xelab executable)
-SIM_TOP_MODULE := display_tb
+SIM_TOP_MODULE := hvsync_tb
 
 ##
 ## **NOTE
@@ -92,12 +92,9 @@ SIM_TOP_MODULE := display_tb
 ## specify RTL sources by hand (more in general can be Verilog + VHDL code)
 ##
 
-RTL_VLOG_SOURCES := $(RTL_DIR)/display_timing.v
-SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v $(SIM_DIR)/display_tb.v
+RTL_VLOG_SOURCES := $(RTL_DIR)/hvsync_generator.v $(RTL_DIR)/VGA.v
+SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v $(SIM_DIR)/hvsync_tb.v
 
-
-#SIM_VLOG_SOURCES += $(SIM_DIR)/
-#SIM_VLOG_SOURCES += $(SIM_DIR)/tb_uart_tx.v
 
 
 ## if no VHDL sources, you can either comment the below variables or just leave them empty
