@@ -20,9 +20,10 @@
 module hvsync_generator (
 
        input clk_25,
+       input rst,
        
-       output reg [9:0] x_count = 'b0,
-       output reg [9:0] y_count = 'b0,
+       output reg [9:0] x_count = 10'b0,
+       output reg [9:0] y_count = 10'b0,
        output reg hsync,
        output reg vsync,
        output reg active_pixel
@@ -36,28 +37,34 @@ module hvsync_generator (
     ////////////////////////////////////////
        
        always @(posedge clk_25) begin
-           if (xmax) begin
-               x_count <= 'b0;
-               if (ymax) begin
-                   y_count <= 0;
+           if (rst) begin
+               hsync = 0;
+               vsync = 0;
+               active_pixel = 0;
+           end 
+           else begin    
+               if (xmax) begin
+                   x_count <= 'b0;
+                   if (ymax) begin
+                       y_count <= 0;
+                   end 
+                   else begin
+                       y_count <= y_count + 'b1;
+                   end
                end 
                else begin
-                   y_count <= y_count + 'b1;
+                   x_count <= x_count + 'b1;
                end
-           end 
-           else begin
-               x_count <= x_count + 'b1;
-           end
-       end
+
        
     ////////////////////////////////////////
     //      generating hsync & vsync      //
     ////////////////////////////////////////
-       
-       always @(posedge clk_25) begin
+    
+               
            hsync <= ~((x_count > 639 + 16) && (x_count < 639 + 16 + 96));  //active for 96 clks after front porch (16 clks)
            vsync <= ~((y_count > 479 + 10) && (y_count < 479 + 10 + 2));   //active for 2 clks after front porch (10 clks)
-           active_pixel <= ((x_count < 640) && (y_count < 525)); 
-       end         
-                         
+           active_pixel <= ((x_count < 640) && (y_count < 480)); 
+           end
+       end                       
 endmodule

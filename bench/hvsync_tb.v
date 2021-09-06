@@ -29,11 +29,11 @@ module hvsync_tb ;
    VGA DUT (
        .clk_100(clk_100),
        .rst(rst),
-       .x_count(x_count),
-       .y_count(y_count),
        .hsync(hsync),
        .vsync(vsync),
-       .active_pixel(active_pixel)
+       .vga_r(vga_r),
+       .vga_g(vga_g),
+       .vga_b(vga_b)
        );
        
        
