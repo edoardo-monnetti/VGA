@@ -40,7 +40,7 @@ module display_tb ;
    
    #300 rst = 1'b0;
    
-   #100000 $finish;
+   #200000 $finish;
    
    end
    

@@ -11,10 +11,6 @@ module VGA (
     input clk_100,
     input rst,
     
-    output active_pixel,
-    output [9:0] x_count,
-    output [9:0] y_count,
-    
     output [3:0] vga_r,
     output [3:0] vga_g,
     output [3:0] vga_b,
@@ -41,14 +37,15 @@ module VGA (
     ////////////////////////////////////////
     
     
-//    wire active_pixel;
-//    wire [9:0] x_count;
-//    wire [9:0] y_count;
+    wire active_pixel;
+    wire [9:0] x_count;
+    wire [9:0] y_count;
     
     
     hvsync_generator hvsync_inst (
     
           .clk_25(clk_25), 
+          .rst(rst),
           .x_count(x_count),
           .y_count(y_count),
           .hsync(hsync),
@@ -61,11 +58,12 @@ module VGA (
     //       generating RGB signals       //
     ////////////////////////////////////////
     
-    RGB_signal RGB_inst (
+    pong pong_inst (
         
           .clk_25(clk_25), 
-          .x_count(x_count),
-          .y_count(y_count),
+          .rst(rst),
+          .sx(x_count),
+          .sy(y_count),
           .active_pixel(active_pixel),
           .vga_r(vga_r),
           .vga_g(vga_g),

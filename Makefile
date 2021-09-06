@@ -92,7 +92,7 @@ SIM_TOP_MODULE := hvsync_tb
 ## specify RTL sources by hand (more in general can be Verilog + VHDL code)
 ##
 
-RTL_VLOG_SOURCES := $(RTL_DIR)/hvsync_generator.v $(RTL_DIR)/VGA.v
+RTL_VLOG_SOURCES := $(RTL_DIR)/hvsync_generator.v $(RTL_DIR)/VGA.v $(RTL_DIR)/pong.v
 SIM_VLOG_SOURCES := $(SIM_DIR)/glbl.v $(SIM_DIR)/ClockGen.v $(SIM_DIR)/hvsync_tb.v
 
 
