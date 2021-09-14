@@ -1,0 +1,10 @@
+sv xil_defaultlib --include "../../../../" \
+"/tools/Xilinx/Vivado/2019.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+
+verilog xil_defaultlib --include "../../../../" \
+"../../../PLL/PLL_clk_wiz.v" \
+"../../../PLL/PLL.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
