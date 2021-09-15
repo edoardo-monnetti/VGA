@@ -20,20 +20,20 @@ module hvsync_tb ;
    
    
    reg rst;
-   wire [9:0] x_count;
-   wire [9:0] y_count;
    wire hsync;
    wire vsync;
-   wire active_pixel;
+   wire [3:0] vga_r;
+   wire [3:0] vga_g;
+   wire [3:0] vga_b;
 
    VGA DUT (
        .clk_100(clk_100),
        .rst(rst),
        .hsync(hsync),
        .vsync(vsync),
-       .vga_r(vga_r),
-       .vga_g(vga_g),
-       .vga_b(vga_b)
+       .vga_r(vga_r[3:0]),
+       .vga_g(vga_g[3:0]),
+       .vga_b(vga_b[3:0])
        );
        
        
@@ -48,7 +48,7 @@ module hvsync_tb ;
    
    #300 rst = 1'b0;
    
-   #100000 $finish;   //1'000'000 ns = 1 ms
+   #10000 $finish;   //1'000'000 ns = 1 ms
    
    $display ("T=%0t End of simulation", $realtime); 
    
