@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="PLL_synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1630078335">
+<GenRun Id="PLL_synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1631628049">
   <File Type="VDS-TIMING-PB" Name="PLL_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="PLL_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="PLL.dcp"/>

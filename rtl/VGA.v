@@ -26,7 +26,7 @@ module VGA (
     //   Generating 25.2 MHz PLL clock    //
     ////////////////////////////////////////
     
-    wire clk_25, pll_locked;        // output clock signals from PLL
+   wire clk_25, pll_locked;        // output clock signals from PLL
     
     PLL  PLL_inst ( .CLK_IN(clk_100), .CLK_OUT(clk_25), .LOCKED(pll_locked) ) ;   // generates 25.2 MHz output clock with maximum input-jitter filtering
     
@@ -45,6 +45,7 @@ module VGA (
     hvsync_generator hvsync_inst (
     
           .clk_25(clk_25), 
+//          .rst(rst | (~pll_locked)),
           .rst(rst),
           .x_count(x_count),
           .y_count(y_count),
@@ -61,13 +62,14 @@ module VGA (
     pong pong_inst (
         
           .clk_25(clk_25), 
+//          .rst(rst | (~pll_locked)),
           .rst(rst),
           .sx(x_count),
           .sy(y_count),
           .active_pixel(active_pixel),
-          .vga_r(vga_r),
-          .vga_g(vga_g),
-          .vga_b(vga_b)
+          .vga_r(vga_r[3:0]),
+          .vga_g(vga_g[3:0]),
+          .vga_b(vga_b[3:0])
           );
           
    

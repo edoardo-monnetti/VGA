@@ -40,25 +40,22 @@ module pong (    // ball size in pixels
     // ball animation during y coordinate blanking
     
     always @(posedge clk_25) begin
-        
-        if (rst) begin
-            vga_r = 4'h0;
-            vga_g = 4'h0;
-            vga_b = 4'h0;
-            b_draw = 0;
-            dx = 0;
-            dy = 0;
-        end  
-        else begin
-            b_draw <= (sx >= bx) && (sx <= bx + BALL_SIZE) && (sy >= by) 
-                      && (sy <= sy + BALL_SIZE);
-        end
-    end
-        
-    always @(posedge clk_25) begin  
 
         control_x = (bx[9:0] >= XRES - (spx + BALL_SIZE));
-        control_y = (by[9:0] >= YRES - (spy + BALL_SIZE));   
+        control_y = (by[9:0] >= YRES - (spy + BALL_SIZE));
+        
+        if (rst) begin
+            vga_r <= 4'h0;
+            vga_g <= 4'h0;
+            vga_b <= 4'h0;
+            b_draw <= 0;
+            dx <= 0;
+            dy <= 0;
+        end  
+        else begin
+
+            b_draw <= (sx >= bx) && (sx <= bx + BALL_SIZE) && (sy >= by) 
+                      && (sy <= sy + BALL_SIZE);                    
         
             if (animate) begin
 
@@ -80,15 +77,13 @@ module pong (    // ball size in pixels
                     by <= by + 1;
                 end else by <= (dy) ? by - 1 : by + 1;
             end
-    end
-    
-      
-    always @(posedge clk_25) begin       
-        // Drawing the ball           
-        vga_r <= (active_pixel && b_draw) ? 4'hF : 4'h0;
-        vga_g <= (active_pixel && b_draw) ? 4'hF : 4'h0;
-        vga_b <= (active_pixel && b_draw) ? 4'hF : 4'h0; 
-    end 
 
-          
+            // Drawing the ball           
+            vga_r <= (active_pixel && b_draw) ? 4'hF : 4'h0;
+            vga_g <= (active_pixel && b_draw) ? 4'hF : 4'h0;
+            vga_b <= (active_pixel && b_draw) ? 4'hF : 4'h0; 
+
+        end    
+    end
+
 endmodule
