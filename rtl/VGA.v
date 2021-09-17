@@ -45,8 +45,8 @@ module VGA (
     hvsync_generator hvsync_inst (
     
           .clk_25(clk_25), 
-//          .rst(rst | (~pll_locked)),
-          .rst(rst),
+          .rst(rst | (~pll_locked)),
+//          .rst(rst),
           .x_count(x_count),
           .y_count(y_count),
           .hsync(hsync),
@@ -59,18 +59,28 @@ module VGA (
     //       generating RGB signals       //
     ////////////////////////////////////////
     
-    pong pong_inst (
+        pong pong_inst (
         
           .clk_25(clk_25), 
-//          .rst(rst | (~pll_locked)),
-          .rst(rst),
-          .sx(x_count),
-          .sy(y_count),
+          .rst(rst | (~pll_locked)),
+          .sx(x_count[9:0]),
+          .sy(y_count[9:0]),
           .active_pixel(active_pixel),
           .vga_r(vga_r[3:0]),
           .vga_g(vga_g[3:0]),
           .vga_b(vga_b[3:0])
           );
+
+//        RGB_signal RGB_inst (
+//        
+//          .clk_25(clk_25), 
+//          .x_count(x_count[9:0]),
+//          .y_count(y_count[9:0]),
+//          .active_pixel(active_pixel),
+//          .vga_r(vga_r[3:0]),
+//          .vga_g(vga_g[3:0]),
+//          .vga_b(vga_b[3:0])
+//          );
           
    
 endmodule
