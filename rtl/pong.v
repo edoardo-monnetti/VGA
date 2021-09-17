@@ -54,8 +54,7 @@ module pong (    // ball size in pixels
         end  
         else begin
 
-            b_draw <= (sx >= bx) && (sx <= bx + BALL_SIZE) && (sy >= by) 
-                      && (sy <= sy + BALL_SIZE);                    
+            b_draw <= (sx >= bx) && (sx <= bx + BALL_SIZE) && (sy >= by) && (sy <= by + BALL_SIZE);                    
         
             if (animate) begin
 
@@ -79,9 +78,9 @@ module pong (    // ball size in pixels
             end
 
             // Drawing the ball           
-            vga_r <= (active_pixel && b_draw) ? 4'hF : 4'h0;
-            vga_g <= (active_pixel && b_draw) ? 4'hF : 4'h0;
-            vga_b <= (active_pixel && b_draw) ? 4'hF : 4'h0; 
+            vga_r <= (active_pixel && b_draw) ? 4'hF : 4'h1;
+            vga_g <= (active_pixel && b_draw) ? 4'hF : 4'h1;
+            vga_b <= (active_pixel && b_draw) ? 4'hF : 4'h1; 
 
         end    
     end

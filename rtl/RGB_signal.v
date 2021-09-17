@@ -21,7 +21,7 @@ module RGB_signal (
      reg q_draw; 
           
     always @(posedge clk_25) begin
-        q_draw = ((x_count < 32) && (y_count < 32)) ? 1'b1 : 1'b0;
+        q_draw = ((x_count <  32 ) && (y_count < 32 )) ? 1'b1 : 1'b0;
         if (!active_pixel) begin
             vga_r <= 4'h0;
             vga_g <= 4'h0;
