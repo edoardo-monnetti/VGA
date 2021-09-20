@@ -66,9 +66,9 @@ module VGA (
           .sx(x_count[9:0]),
           .sy(y_count[9:0]),
           .active_pixel(active_pixel),
-          .vga_r(vga_r[3:0]),
-          .vga_g(vga_g[3:0]),
-          .vga_b(vga_b[3:0])
+          .vga_r_out(vga_r[3:0]),
+          .vga_g_out(vga_g[3:0]),
+          .vga_b_out(vga_b[3:0])
           );
 
 //        RGB_signal RGB_inst (
