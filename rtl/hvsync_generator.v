@@ -22,8 +22,8 @@ module hvsync_generator (
        input clk_25,
        input rst,
        
-       output reg [9:0] x_count = 10'b0,
-       output reg [9:0] y_count = 10'b0,
+       output reg [9:0] x_count = 10'd630,
+       output reg [9:0] y_count = 10'd523,
        output hsync,
        output vsync,
        output active_pixel
