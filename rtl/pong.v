@@ -29,8 +29,8 @@ module pong (    // ball size in pixels
     reg [9:0] spy = 10'd2;
     reg dx;
     reg dy;   // 0 = right, down; 1 = left, up
-    reg [9:0] bx = 10'd10;
-    reg [9:0] by = 10'd100;    
+    reg [9:0] bx = 10'd620;
+    reg [9:0] by = 10'd200;    
     
     reg b_draw;    // ball drawing enable
 
