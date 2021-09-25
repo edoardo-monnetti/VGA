@@ -13,6 +13,10 @@
 //    Blanking Total       160     45
 //    Total Pixels         800    525
 //    Sync Polarity        neg    neg
+//
+// N.B. : Y-coordinates timing are referred to y-counter NOT the 25 MHz clock. 
+//        So a pixel for y axis is different from a x axis pixel in terms of number of clks
+//
 
 
 `timescale 10 ns / 1 ns
@@ -22,8 +26,8 @@ module hvsync_generator (
        input clk_25,
        input rst,
        
-       output reg [9:0] x_count = 10'd630,
-       output reg [9:0] y_count = 10'd523,
+       output reg [9:0] x_count = 10'd0,
+       output reg [9:0] y_count = 10'd479,
        output hsync,
        output vsync,
        output active_pixel
@@ -58,8 +62,8 @@ module hvsync_generator (
     ////////////////////////////////////////
     
                
-        assign   hsync = ~((x_count > 639 + 16) && (x_count < 639 + 16 + 96));  //active for 96 clks after front porch (16 clks)
-        assign   vsync = ~((y_count > 479 + 10) && (y_count < 479 + 10 + 2));   //active for 2 clks after front porch (10 clks)
+        assign   hsync = ~((x_count > 639 + 16) && (x_count <= 639 + 16 + 96));  //active for 96 clks after front porch (16 clks)
+        assign   vsync = ~((y_count > 479 + 10) && (y_count <= 479 + 10 + 2));   //active for 2*800 clks after front porch (10*800 clks)
         assign   active_pixel = ((x_count < 640) && (y_count < 480)); 
 
 

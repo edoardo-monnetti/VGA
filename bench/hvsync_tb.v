@@ -48,7 +48,7 @@ module hvsync_tb ;
    
    #300 rst = 1'b0;
    
-   #10000 $finish;   //1'000'000 ns = 1 ms
+   #100000 $finish;   //1'000'000 ns = 1 ms
    
    $display ("T=%0t End of simulation", $realtime); 
    
